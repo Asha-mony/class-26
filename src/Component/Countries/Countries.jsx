@@ -1,6 +1,11 @@
+/* eslint-disable react/no-unknown-property */
 
 import { useEffect } from 'react';
 import { useState } from 'react';
+import Country from '../../Components/Country';
+
+// eslint-disable-next-line no-unused-vars
+
 
 const Countries = () => {
     // creating state
@@ -11,22 +16,18 @@ const Countries = () => {
         fetch('https://restcountries.com/v3.1/all')
         .then(res=>res.json())
         .then(countries=> {setCountries(countries)
-        console.log(countries)})
+        // console.log(countries)
+    })
 
     },[])
 
 
     return (
         <div>
-            <h1>Countries</h1>
-        <div>
+            <h1 style={{textAlign:'center'}}>Countries</h1>
+        <div className='container'>
         {
-            countries.map((country, idx)=> <div key={idx}>{idx}
-            <h1>{country.name.common}</h1>
-            <img src={country?.flags?.png} alt="" />
-            <h1>Population: {country?.population}</h1>
-            <h1>City: {country?.capital?.[0]}</h1>
-            </div>)
+            countries.map((country, idx)=> <Country key={idx} country={country}></Country> )
         }
         </div>
  

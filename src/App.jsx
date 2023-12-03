@@ -20,13 +20,16 @@ function App() {
   
   return (
     <div className='app'>
+
+      <div className='counter'>
       <h1>Counter: {value}</h1>
       <button onClick={increament}>+</button>
       <button onClick={decreament}>-</button>
+      </div>
 
     {/* Countries component */}
     <Countries></Countries>
-
+    
 
     </div>
   )
